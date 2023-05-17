@@ -1,7 +1,7 @@
 /*********************************************************/
-/***        Author : Ahmed Khaled 			       ***/
-/***        SWC : Reset & Clock Control (RCC)		 ***/
-/***        Version : V1				       ***/
+/***        Author : Ahmed Khaled 					   ***/
+/***        SWC : Reset & Clock Control (RCC)		   ***/
+/***        Version : V1				               ***/
 /*********************************************************/
 
 #ifndef RCC_CONFIG_H_
@@ -33,7 +33,7 @@
                8-AHP_PRE_DIV_25
                9-AHP_PRE_DIV_51
                */
-#define AHP_PRE             AHP_PRE_DIV_2
+#define AHP_PRE             AHP_PRE_DIV_16
 
 
 /*ABP1_PRE Options
