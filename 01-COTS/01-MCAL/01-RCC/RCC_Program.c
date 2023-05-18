@@ -12,6 +12,13 @@
 #include "RCC_Config.h"
 #include "RCC_Register.h"
 
+
+/**********************************************************************************/
+/*******Description : This function Select the CLK Source of the System************/
+/*******              and Select the Prescaler for the AHP1 ,APB1 and APB2  *******/
+/*******Input : Use Configuration file to Select your Configuration ***************/
+/*******Output: No Retuen (void)***************************************************/
+/**********************************************************************************/
 void RCC_voidInitSysCLK(void)
 {
 	u32 Loca_u32Temporary = AHP_PRE ;
@@ -99,7 +106,13 @@ RCC_CFGR |=(Loca_u32Temporary<<13);
 
 }
 
-
+/**********************************************************************************/
+/*******Description : This function Enable the Peripheral CLK Based on ************/
+/*******              the peripheral Connected with AHP1 ,APB1 and APB2  **********/
+/*******Input : Copy_u8BusID : AHP1 ,APB1 and APB2 ********************************/
+/*******Input : Copy_u8PeripheralID : GPIO_A,GPIO_B,GPIO_C etc ********************/
+/*******Output: No Retuen (void)***************************************************/
+/**********************************************************************************/
 
 void RCC_voidEnablePeripheralClk(u8 Copy_u8BusID, u8 Copy_u8PeripheralID)
 {
@@ -122,6 +135,15 @@ void RCC_voidEnablePeripheralClk(u8 Copy_u8BusID, u8 Copy_u8PeripheralID)
 
 
 }
+
+
+/**********************************************************************************/
+/*******Description : This function Disable the Peripheral CLK Based on ***********/
+/*******              the peripheral Connected with AHP1 ,APB1 and APB2  **********/
+/*******Input : Copy_u8BusID : AHP1 ,APB1 and APB2 ********************************/
+/*******Input : Copy_u8PeripheralID : GPIO_A,GPIO_B,GPIO_C etc ********************/
+/*******Output: No Retuen (void)***************************************************/
+/**********************************************************************************/
 
 void RCC_voidDisablePeripheralClk(u8 Copy_u8BusID, u8 Copy_u8PeripheralID)
 {
