@@ -235,9 +235,9 @@ u8 GPIO_u8GetPinValue(u8 Copy_u8Port,u8 Copy_u8PinNumber)
 	u8 Local_u8PinReading=OK;
 	switch(Copy_u8Port)
 	{
-		case GPIO_A:Local_u8PinReading=GET_BIT(GPIO_A,Copy_u8PinNumber);break;
-		case GPIO_B:Local_u8PinReading=GET_BIT(GPIO_B,Copy_u8PinNumber);break;
-		case GPIO_C:Local_u8PinReading=GET_BIT(GPIO_C,Copy_u8PinNumber);break;														
+		case GPIO_A:Local_u8PinReading=GET_BIT(GPIOA_IDR,Copy_u8PinNumber);break;
+		case GPIO_B:Local_u8PinReading=GET_BIT(GPIOB_IDR,Copy_u8PinNumber);break;
+		case GPIO_C:Local_u8PinReading=GET_BIT(GPIOC_IDR,Copy_u8PinNumber);break;
 	}
 
 	return Local_u8PinReading;
@@ -260,6 +260,74 @@ u8 GPIO_u8SetPortValue(u8 Copy_u8Port,u16 Copy_u16PortValue)
 	return Local_u8ErrorState;
 
 
+}
+
+u8 GPIO_u8SetPinUpDown(u8 Copy_u8Port, u8 Copy_u8PinNumber, u8 Copy_Up_Down)
+{
+	u8 Local_u8ErrorState=OK;
+	
+	if(Copy_u8Port == GPIO_A)
+	{
+		switch (Copy_Up_Down)
+		{
+		case NO_PULL:	CLR_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber));
+				   	   	CLR_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+		case PULL_UP:	SET_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber));
+						CLR_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+
+		case PULL_DOWN:	CLR_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber));
+						SET_BIT(GPIOA_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+		default:Local_u8ErrorState=NOK;break;
+		}
+
+	}
+	else if(Copy_u8Port == GPIO_B)
+	{
+		switch (Copy_Up_Down)
+		{
+		case NO_PULL:	CLR_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber));
+				   	   	CLR_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+		case PULL_UP:	SET_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber));
+						CLR_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+
+		case PULL_DOWN:	CLR_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber));
+						SET_BIT(GPIOB_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+
+		default:Local_u8ErrorState=NOK;break;
+		}
+
+	}
+	else if(Copy_u8Port == GPIO_C)
+	{
+		switch (Copy_Up_Down)
+		{
+		case NO_PULL:	CLR_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber));
+				   	   	CLR_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+		case PULL_UP:	SET_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber));
+						CLR_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+
+		case PULL_DOWN:	CLR_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber));
+						SET_BIT(GPIOC_PUPDR,(2*Copy_u8PinNumber+1));break;
+
+
+		default:Local_u8ErrorState=NOK;break;
+		}
+
+	}
+	
+
+
+
+
+	return Local_u8ErrorState;
 }
 
 

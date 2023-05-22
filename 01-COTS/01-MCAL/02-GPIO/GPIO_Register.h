@@ -34,5 +34,15 @@
 
 
 
+#define GPIOA_PUPDR			   	*((volatile u32*)(GPIOA_BASE_ADRESS+0x0c))            /*GPIO port A pull-up/pull-down register*/
+#define GPIOB_PUPDR			   	*((volatile u32*)(GPIOB_BASE_ADRESS+0x0c))            /*GPIO port B pull-up/pull-down register*/
+#define GPIOC_PUPDR			   	*((volatile u32*)(GPIOC_BASE_ADRESS+0x0c))            /*GPIO port C pull-up/pull-down register*/
+
+
+
+
+#define GPIOA_IDR			   	*((volatile u32*)(GPIOA_BASE_ADRESS+0x10))            /*GPIO PortA input data register */
+#define GPIOB_IDR			   	*((volatile u32*)(GPIOB_BASE_ADRESS+0x10))            /*GPIO PortB input data register */
+#define GPIOC_IDR			   	*((volatile u32*)(GPIOC_BASE_ADRESS+0x10))            /*GPIO PortC input data register */
 
 #endif

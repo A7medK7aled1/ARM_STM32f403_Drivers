@@ -74,4 +74,6 @@ u8 GPIO_u8SetPortValue(u8 Copy_u8Port,u16 Copy_u16PortValue);
 
 u8 GPIO_u8GetPinValue(u8 Copy_u8Port,u8 Copy_u8PinNumber);
 
+u8 GPIO_u8SetPinUpDown(u8 Copy_u8Port, u8 Copy_u8PinNumber, u8 Copy_Up_Down);
+
 #endif
